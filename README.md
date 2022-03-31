@@ -66,7 +66,6 @@ All {instance.compartment.id = 'compartmentOCID'}
 | Use case | OCI Services  | Statement |
 | :--- | :--- | :--- |
 |Allow various resources (like VM/OKE etc) to use by deployment pipeline for deployments|Deployment pipeline,OCI resources|```Allow dynamic-group dg-compartmentname-deploymentpipeline to manage all-resources in compartment <compartment name> ```|
-
 |Deploy application to instances|Deploy pipeline,Compute,Compute agents|```Allow dynamic-group dg-compartmentname-computeinstances to use instance-agent-command-execution-family in compartment <compartment_name>```;```Allow dynamic-group dg-compartmentname-computeinstances to read generic-artifacts in compartment <compartment_name> ```
 
 
