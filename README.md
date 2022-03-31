@@ -37,10 +37,14 @@ All {resource.type = 'devopsdeploypipeline', resource.compartment.id = 'compartm
 ### Policies
 
 <details>
-<summary>Devops Pipeline (OCI Repo + Build + Deploy) - Click to expand</summary>
+<summary>OCI Build pipeline - Click to expand</summary>
 
 | Use case | OCI Services  | Statement |
-| :---: | :---: | :---: |
-| Deliver artifacts  with container registry | Build pipeline , Container registry | ``` Allow dynamic-group dg-compartname-buildpipeline to manage repos in compartment <compartment_name> ``` |
+| :---: | :---: | :--- |
+| Deliver artifacts  with container registry from Build pipeline | Build pipeline , Container registry | ``` Allow dynamic-group dg-compartname-buildpipeline to manage repos in compartment <compartment_name> ``` |
+|Use Vault or Personal Access token (GITHUB/GITLAB etc) with Build piepline |Build pipeline,Vault,Connection|```Allow dynamic-group dg-compartname-buildpipeline to read secret-family in compartment <compartment_name> ```|
+|Use OCI Code repo or Invoke deployment from Build pipeline|Build pipeline,Cod repo,Deploy pipeline|```Allow dynamic-group dg-compartname-buildpipeline to manage devops-family in compartment <compartment_name> ```|
+|Use Artifact repo with buildpipeline|Buildpipeline,Artifact registry|``` Allow dynamic-group dg-compartname-buildpipeline to manage generic-artifacts in compartment <compartment_name>```|
+|Send notifications from buildpipeline|Build pipeline,Notification|```Allow dynamic-group dg-compartname-buildpipeline to use ons-topics in compartment <compartment_name> ```
 
 </details>
