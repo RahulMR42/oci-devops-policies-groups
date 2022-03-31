@@ -2,9 +2,15 @@ Sample illustrations of `dynamic groups` and `policies` requirements for `OCI De
 
 ----------
 
+### ❗ Attention please:
+
+- All these samples are written with a sample dynamic groups,please change accordingly. 
+- All the policies are using verbs * manage or use * which are powerfull , you may alter with other verbs( read,inspect) as accordingly.
+- Use the [References](https://github.com/RahulMR42/oci-devops-policies-groups#references) section to read more about fine grain controls. 
+
 <!-- All about user groups -->
 
-### User Groups
+### ✔️ User Groups
 <details>
 <summary>Devops Pipeline (OCI Repo + Build + Deploy) - Click to expand</summary>
 
@@ -19,7 +25,7 @@ Sample illustrations of `dynamic groups` and `policies` requirements for `OCI De
 
 <!-- All about dynamic  groups -->
 
-### Dynamic Groups 
+### ✔️ Dynamic Groups 
 
 <details>
 <summary>Devops Pipeline (OCI Repo + Build + Deploy) - Click to expand</summary>
@@ -91,14 +97,7 @@ ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.
 
 <!-- All about policies  -->
 
-### Policies 
-
-> :Note:
-
-- All these policies are written with a sample dynamic groups,please change accordingly. 
-- All the policies are using verbs * manage or use * which are powerfull , you may alter with other verbs( read,inspect) as accordingly.
-- Use the [References](https://github.com/RahulMR42/oci-devops-policies-groups#references) section to read more. 
-
+### ✔️ Policies 
 <details>
 <summary>OCI Users - Click to expand</summary>
 
@@ -161,7 +160,7 @@ ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.
 
 <!-- All about references -->
 
-### References 
+### 📕 References 
 
 - Devops policies - OCI Documentation - [link](https://docs.oracle.com/en-us/iaas/Content/devops/using/devops_iampolicies.htm#devops_iam_policies) 
 
