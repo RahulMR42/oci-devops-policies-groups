@@ -39,6 +39,8 @@ All {resource.type = 'devopsdeploypipeline', resource.compartment.id = 'compartm
 <details>
 <summary>Devops Pipeline (OCI Repo + Build + Deploy) - Click to expand</summary>
 
-whatever
+| Use case | OCI Services  | Statement |
+| :---: | :---: | :---: |
+| Deliver artifacts  with container registry | Build pipeline , Container registry | ``` Allow dynamic-group dg-compartname-buildpipeline to manage repos in compartment <compartment_name> ``` |
 
 </details>
