@@ -61,7 +61,7 @@ All {instance.compartment.id = 'compartmentOCID'}
 </details>
 
 <details>
-<summary>Devops Connection - For external code repos (Github,Gitlab etc)</summary>
+<summary>Devops Connection - For external code repos (Github,Gitlab etc) - Click to expand</summary>
 
 - Create a dynamic group (Eg: dg-compartmentname-devopsconnection) for devops connection with below rule.
 
