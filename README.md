@@ -93,6 +93,12 @@ ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.
 
 ### Policies 
 
+> :Note:
+
+- All these policies are written with a sample dynamic groups,please change accordingly. 
+- All the policies are using verbs * manage or use * which are powerfull , you may alter with other verbs( read,inspect) as accordingly.
+- Use the [References](https://github.com/RahulMR42/oci-devops-policies-groups#references) section to read more. 
+
 <details>
 <summary>OCI Users - Click to expand</summary>
 
