@@ -2,6 +2,8 @@ Sample illustrations of `dynamic groups` and `policies` requirements for `OCI De
 
 ----------
 
+<!-- All about user groups -->
+
 ### User Groups
 <details>
 <summary>Devops Pipeline (OCI Repo + Build + Deploy) - Click to expand</summary>
@@ -14,6 +16,8 @@ Sample illustrations of `dynamic groups` and `policies` requirements for `OCI De
     - How to add users to user groups - https://docs.oracle.com/en-us/iaas/Content/devops/using/getting_started.htm#prereq 
 
 </details>
+
+<!-- All about dynamic  groups -->
 
 ### Dynamic Groups 
 
@@ -85,6 +89,8 @@ ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.
 </details>
 
 
+<!-- All about policies  -->
+
 ### Policies 
 
 <details>
@@ -146,6 +152,8 @@ ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.
 | :--- | :--- | :--- |
 |Use gateway with Functions|Function,Gateway|``` Allow dynamic-group dg-compartmentname-gateway to use functions-family in compartment <compartment name> ```|
 </details>
+
+<!-- All about references -->
 
 ### References 
 
