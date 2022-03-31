@@ -32,6 +32,12 @@ ALL {resource.type = 'devopsbuildpipeline', resource.compartment.id = 'compartme
 All {resource.type = 'devopsdeploypipeline', resource.compartment.id = 'compartmentOCID'}
 ```
 
+- Create dynamic group (Ef: dg-compartmentname-coderepo) for your coderepo with below rule.
+
+```
+ALL {resource.type = 'devopsrepository', resource.compartment.id = 'compartmentOCID'}
+```
+
 </details>
 
 <details>
@@ -42,10 +48,53 @@ All {resource.type = 'devopsdeploypipeline', resource.compartment.id = 'compartm
 ```
 All {instance.compartment.id = 'compartmentOCID'}
 ```
+</details>
+
+<details>
+<summary>Devops Connection - For external code repos (Github,Gitlab etc)</summary>
+
+- Create a dynamic group (Eg: dg-compartmentname-devopsconnection) for devops connection with below rule.
+
+```
+ALL {resource.type = 'devopsconnection', resource.compartment.id = 'compartmentOCID'}
+```
 
 </details>
 
-### Policies
+<details>
+<summary>Use OCI functions with other OCI services (like use vault from functions etc) - Click to expand</summary>
+
+- Create a dynamic group (Eg: dg-compartmentname-functions) to group all the instances with below rule.
+
+```
+resource.type = 'fnfunc'
+resource.compartment.id = 'ocid1.compartment.oc1..xx'
+```
+
+</details>
+
+<details>
+<summary>Use OCI Gateway  with other OCI services (Functions etc) - Click to expand</summary>
+
+- Create a dynamic group (Eg: dg-compartmentname-gateways) to group all the gateways with below rule.
+
+```
+ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.oc1..xx'}
+```
+
+</details>
+
+
+### Policies 
+
+<details>
+<summary>OCI Users - Click to expand</summary>
+
+| Use case | OCI Services  | Statement |
+| :--- | :--- | :--- |
+|Allow a specifc user group to manage devops services |User groups,Devops|```Allow group devops-admins to manage devops-family ```|
+
+</details>
 
 <details>
 <summary>OCI Build pipeline - Click to expand</summary>
@@ -66,7 +115,40 @@ All {instance.compartment.id = 'compartmentOCID'}
 | Use case | OCI Services  | Statement |
 | :--- | :--- | :--- |
 |Allow various resources (like VM/OKE etc) to use by deployment pipeline for deployments|Deployment pipeline,OCI resources|```Allow dynamic-group dg-compartmentname-deploymentpipeline to manage all-resources in compartment <compartment name> ```|
-|Deploy application to instances|Deploy pipeline,Compute,Compute agents|```Allow dynamic-group dg-compartmentname-computeinstances to use instance-agent-command-execution-family in compartment <compartment_name>```;```Allow dynamic-group dg-compartmentname-computeinstances to read generic-artifacts in compartment <compartment_name> ```
+|Deploy application to instances|Deploy pipeline,Compute,Compute agents|```Allow dynamic-group dg-compartmentname-computeinstances to use instance-agent-command-execution-family in compartment <compartment_name>```;```Allow dynamic-group dg-compartmentname-computeinstances to read generic-artifacts in compartment <compartment_name> ```|
+|Use artifacts from deployment pipeline|Deployment pipeline,Artifiact registry|```Allow dynamic-group dg-compartmentname-deploymentpipeline to read all-artifacts in compartment <compartment_name> ```
 
 
 </details>
+<details>
+<summary>OCI Code repo & External repos - Click to expand</summary>
+
+| Use case | OCI Services  | Statement |
+| :--- | :--- | :--- |
+|Use OCI code repo for oci devops|Code repo,Build pipeline|```Allow dynamic-group dg-compartmentname-coderepo to manage devops-family in compartment <compartment_name> ```|
+|OCI Code repo to access resources with in the compartment|Code repo,OCI Resources|```Allow dynamic-group dg-compartmentname-coderepo to manage all-resources in tenancy ```|
+|Allow external code repos(Github,Gitlab) connection via Personal Access Token(PAT)|Connection,Vault|```Allow dynamic-group dg-compartmentname-devopsconnection to read secret-family in compartment <compartment name> ```|
+
+</details>
+
+<details>
+<summary>OCI functions - Click to expand</summary>
+
+| Use case | OCI Services  | Statement |
+| :--- | :--- | :--- |
+|Use vault with OCI functions|Functions,Secrets|``` allow dynamic-group dg-compartmentname-functions to manage secret-family in compartment <compartment name>;allow dynamic-group dg-compartmentname-functions to manage vault in compartment <compartment name>;allow dynamic-group dg-compartmentname-functions to manage keys in compartment <compartment name> ```|
+</details>
+
+<details>
+<summary>OCI gateway - Click to expand</summary>
+
+| Use case | OCI Services  | Statement |
+| :--- | :--- | :--- |
+|Use gateway with Functions|Function,Gateway|``` Allow dynamic-group dg-compartmentname-gateway to use functions-family in compartment <compartment name> ```|
+</details>
+
+### References 
+
+- Devops policies - OCI Documentation - [link](https://docs.oracle.com/en-us/iaas/Content/devops/using/devops_iampolicies.htm#devops_iam_policies) 
+
+- Fine grained access to a specific component and actions - [link](https://docs.oracle.com/en-us/iaas/Content/devops/using/devops_iampolicies.htm#policy-details)
