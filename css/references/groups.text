@@ -1,8 +1,0 @@
-Create a user and all the devops users to the user group (One group is minimum).
-You may use Administrator group for devops ,however better to create a specific user group to have better control.
-For further controls ,you may create different user groups like devops-admins,devops-users,devops-validators etc.
-Documentation
-How to create user groups - https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managinggroups.htm#three
-How to add users to user groups - https://docs.oracle.com/en-us/iaas/Content/devops/using/getting_started.htm#prereq
-
-[Policy Statement]  "Allow group devops-admins to manage devops-family"

@@ -1,6 +1,11 @@
 <head>
 	<title>OCI Devops Policy Generator</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>  
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/collapse.css"/>
+
+	
+
+
 </head>
 <bo<h2>Trial - Policies & DG </h2>
 <form>
@@ -57,14 +62,36 @@
   <br>
   <button type="button" onclick=" checkButton()">Generate</button>
   <h4 id="disp" style= "color:rgb(122, 165, 245)"> </h4>
-  <iframe id="iframeuser"></iframe>
+
+  <details>
+	<summary>
+	 User Related
+	  <span class="icon">👇</span>
+	</summary>
+	<p>
+		<object data="references/groups.txt" width="100%" height="100%"></object>
+			
+	</p>
+  </details>
+
+  <details>
+	<summary>
+	 Policies
+	  <span class="icon">👇</span>
+	</summary>
+	<p>
+		<object id="objectpolicy" width="100%" height="100%"></object>
+			
+	</p>
+  </details>
+  
+
   <script>
 	  function checkButton() { 
 		var code_repo_selection = ""
 		var pipeline_selection = ""
 		var oci_services = ""
-		var file_reader =  new FileReader();
-
+		
 		if (document.getElementById('checkocirepo').checked){
 
 			var code_repo_selection = code_repo_selection + "OCI Code Repo,"
@@ -100,18 +127,13 @@
 
 
 		document.getElementById("disp").innerHTML = "Pipelines Selection: " + pipeline_selection + "<br> Code Repo Selecton: " + code_repo_selection  + "<br> Oci Services Selecton: " + oci_services
-		document.getElementById("iframeuser").src="./references/groups.text"
-                    
-
+	    document.getElementById("objectpolicy").data = "references/policies.txt"
 	  }
 
    
   </script>
 </form>
 <p>&nbsp;</p>
-<hr/>
 <div>
-  <p style="text-align:left;">yyy</p>
-<p style="text-align:left;">xxx</p>
 </div>
 </body>

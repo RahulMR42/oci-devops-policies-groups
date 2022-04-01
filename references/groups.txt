@@ -1,0 +1,2 @@
+[Create a Group] Add devops users to the group.
+[Policy Statement]  "Allow group devops-admins to manage devops-family"
