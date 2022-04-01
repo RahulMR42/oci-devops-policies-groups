@@ -14,7 +14,7 @@ Sample illustrations of `dynamic groups` and `policies` requirements for `OCI De
 <details>
 <summary>Devops Pipeline (OCI Repo + Build + Deploy) - Click to expand</summary>
 
--  Create a user and all the devops users to the user group (One group is minimum).
+-  Create  relevenat users and all the devops users to the user group (One group is minimum).
 -  You may use `Administrator` group for devops ,however better to create a specific user group to have better control.
 - For further controls ,you may create different user groups like `devops-admins`,`devops-users`,`devops-validators` etc.
 - Documentation
@@ -148,6 +148,8 @@ ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.
 | Use case | OCI Services  | Statement |
 | :--- | :--- | :--- |
 |Use vault with OCI functions|Functions,Secrets|``` allow dynamic-group dg-compartmentname-functions to manage secret-family in compartment <compartment name>;allow dynamic-group dg-compartmentname-functions to manage vault in compartment <compartment name>;allow dynamic-group dg-compartmentname-functions to manage keys in compartment <compartment name> ```|
+|Function read from repos for deployment|Functions,Repos|```Allow service FaaS to read repos in compartment <compartment name> ```|
+|Function to manage resources|Function ,Resources|```Allo dynamic-group dg-compartmentname-functions to manage all-resources in compartment <compartment name> ```|
 </details>
 
 <details>
