@@ -138,7 +138,7 @@ ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.
 | :--- | :--- | :--- |
 |Use OCI code repo for oci devops|Code repo,Build pipeline|```Allow dynamic-group dg-compartmentname-coderepo to manage devops-family in compartment <compartment_name> ```|
 |OCI Code repo to access resources with in the compartment|Code repo,OCI Resources|```Allow dynamic-group dg-compartmentname-coderepo to manage all-resources in tenancy ```|
-|Allow external code repos(Github,Gitlab) connection via Personal Access Token(PAT)|Connection,Vault|```Allow dynamic-group dg-compartmentname-devopsconnection to read secret-family in compartment <compartment name> ```|
+|Allow external code repos(Github,Gitlab) connection via Personal Access Token(PAT)|Connection,Vault|```Allow dynamic-group dg-compartmentname-devopsconnection to read secret-family in tenancy ```|
 
 </details>
 
